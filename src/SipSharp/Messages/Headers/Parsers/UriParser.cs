@@ -1,6 +1,5 @@
 ﻿using System;
 using SipSharp.Tools;
-using Xunit;
 
 namespace SipSharp.Messages.Headers.Parsers
 {

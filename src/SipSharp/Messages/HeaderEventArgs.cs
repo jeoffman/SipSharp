@@ -1,5 +1,5 @@
 ﻿using System;
-using Fadd;
+//using Fadd;
 
 namespace SipSharp.Transports.Parser
 {
@@ -15,8 +15,12 @@ namespace SipSharp.Transports.Parser
         /// <param name="value">Header value.</param>
         public HeaderEventArgs(string name, string value)
         {
-            Check.NotEmpty(name, "name");
-            Check.NotEmpty(value, "value");
+            //Check.NotEmpty(name, "name");
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentNullException($"{nameof(name)}");
+            //Check.NotEmpty(value, "value");
+            if (string.IsNullOrEmpty(value))
+                throw new ArgumentNullException($"{nameof(value)}");
 
             Name = name;
             Value = value;

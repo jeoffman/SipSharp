@@ -1,5 +1,5 @@
 ﻿using System;
-using Fadd;
+//using Fadd;
 
 namespace SipSharp.Transports.Parser
 {
@@ -16,9 +16,15 @@ namespace SipSharp.Transports.Parser
         /// <param name="count">number of bytes from <paramref name="offset"/> that should be parsed.</param>
         public BodyEventArgs(byte[] buffer, int offset, int count)
         {
-            Check.Require(buffer, "buffer");
-            Check.Min(1, offset, "offset");
-            Check.Min(1, count, "count");
+            //Check.Require(buffer, "buffer");
+            if (buffer == null)
+                throw new ArgumentNullException($"{nameof(buffer)}");
+            //Check.Min(1, offset, "offset");
+            if (offset < 1)
+                throw new ArgumentOutOfRangeException($"{nameof(offset)} must be >= 1");
+            //Check.Min(1, count, "count");
+            if (count < 1)
+                throw new ArgumentOutOfRangeException($"{nameof(count)} must be >= 1");
 
             Buffer = buffer;
             Offset = offset;

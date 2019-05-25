@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using Xunit;
+//using Xunit;
 
 namespace SipSharp.Tools
 {
@@ -12,7 +12,7 @@ namespace SipSharp.Tools
         {
             _reader = new BufferReader(_encoding);
         }
-
+#if TEST
         [Fact]
         private void TestGetString()
         {
@@ -60,5 +60,6 @@ namespace SipSharp.Tools
             _reader.Consume('\t', ' ');
             Assert.Equal("header", _reader.ReadLine());
         }
+#endif
     }
 }
