@@ -1,212 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E9ED153F-72FA-4143-A2B8-C6C94AE561C8}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SipSharp</RootNamespace>
-    <AssemblyName>SipSharp</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>3.5</OldToolsVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <FileUpgradeFlags />
+    <UpgradeBackupLocation />
+    <AssemblyTitle>SipSharp</AssemblyTitle>
+    <Product>SipSharp</Product>
+    <Copyright>Copyright © 2019</Copyright>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Test\</OutputPath>
     <DefineConstants>TRACE;DEBUG;TEST</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackToBackUserAgent.cs" />
-    <Compile Include="BadRequestException.cs" />
-    <Compile Include="Calls\Call.cs" />
-    <Compile Include="Calls\CallContext.cs" />
-    <Compile Include="Calls\CallOriginHelper.cs" />
-    <Compile Include="Calls\CallOrigins.cs" />
-    <Compile Include="Calls\CallReasons.cs" />
-    <Compile Include="Calls\CallState.cs" />
-    <Compile Include="Calls\HangupCause.cs" />
-    <Compile Include="Calls\IPartyAddress.cs" />
-    <Compile Include="Calls\Party.cs" />
-    <Compile Include="Calls\PhoneNumber.cs" />
-    <Compile Include="Calls\CallManager.cs" />
-    <Compile Include="Client\MethodHandlers.cs" />
-    <Compile Include="Client\SipClient.cs" />
-    <Compile Include="Client\SoftPhone.cs" />
-    <Compile Include="Client\UserAgentClient.cs" />
-    <Compile Include="Client\UserAgentServer.cs" />
-    <Compile Include="Contact.cs" />
-    <Compile Include="Dialogs\Dialog.cs" />
-    <Compile Include="ForbiddenException.cs" />
-    <Compile Include="Hop.cs" />
-    <Compile Include="ISipStack.cs" />
-    <Compile Include="Logging\ConsoleLogFactory.cs" />
-    <Compile Include="Logging\ConsoleLogger.cs" />
-    <Compile Include="Logging\ILogFactory.cs" />
-    <Compile Include="Logging\ILogger.cs" />
-    <Compile Include="Logging\ILogFilter.cs" />
-    <Compile Include="Logging\LogFactory.cs" />
-    <Compile Include="Logging\LogFilter.cs" />
-    <Compile Include="Logging\LogLevel.cs" />
-    <Compile Include="Logging\NullLogFactory.cs" />
-    <Compile Include="Logging\NullLogger.cs" />
-    <Compile Include="Messages\Headers\Authorization.cs" />
-    <Compile Include="Messages\Headers\ContentType.cs" />
-    <Compile Include="Messages\Headers\Event.cs" />
-    <Compile Include="Messages\Headers\HeaderInfo.cs" />
-    <Compile Include="Messages\Headers\MaxForwards.cs" />
-    <Compile Include="Messages\Headers\MethodsHeader.cs" />
-    <Compile Include="Messages\Headers\Parsers\AuthorizationParser.cs" />
-    <Compile Include="Messages\Headers\Parsers\ContentTypeParser.cs" />
-    <Compile Include="Messages\Headers\Parsers\GenericParserAttribute.cs" />
-    <Compile Include="Messages\Headers\NumericHeader.cs" />
-    <Compile Include="Messages\Headers\Parsers\MethodsParser.cs" />
-    <Compile Include="Messages\Headers\Parsers\NumericHeaderParser.cs" />
-    <Compile Include="Messages\Headers\Parsers\ParserForAttribute.cs" />
-    <Compile Include="Messages\Headers\Parsers\AuthenticateParser.cs" />
-    <Compile Include="Messages\Headers\Parsers\RouteParser.cs" />
-    <Compile Include="Messages\Headers\SubscriptionState.cs" />
-    <Compile Include="Messages\Headers\Authenticate.cs" />
-    <Compile Include="Messages\Message.cs" />
-    <Compile Include="Messages\Headers\StringHeader.cs" />
-    <Compile Include="Messages\Headers\HeaderKeyValueCollection.cs" />
-    <Compile Include="Messages\Headers\HeaderFactory.cs" />
-    <Compile Include="Messages\Headers\Parsers\StringHeaderParser.cs" />
-    <Compile Include="Messages\Headers\Parsers\UriParser.cs" />
-    <Compile Include="Messages\Headers\Parsers\ContactParser.cs" />
-    <Compile Include="Messages\Headers\Parsers\CSeqParser.cs" />
-    <Compile Include="Messages\Headers\Parsers\IHeaderParser.cs" />
-    <Compile Include="Messages\Headers\Parsers\ViaParser.cs" />
-    <Compile Include="IKeyValueCollection.cs" />
-    <Compile Include="IUserAgent.cs" />
-    <Compile Include="Dialogs\DialogManager.cs" />
-    <Compile Include="Dialogs\DialogState.cs" />
-    <Compile Include="Dialogs\IDialog.cs" />
-    <Compile Include="Messages\Headers\ContactHeader.cs" />
-    <Compile Include="Messages\Headers\CSeq.cs" />
-    <Compile Include="Messages\Headers\IHeader.cs" />
-    <Compile Include="Messages\Headers\MultiHeader.cs" />
-    <Compile Include="Messages\Headers\Route.cs" />
-    <Compile Include="Messages\Headers\RouteEntry.cs" />
-    <Compile Include="Messages\Headers\Via.cs" />
-    <Compile Include="Messages\Headers\ViaEntry.cs" />
-    <Compile Include="HeaderValue.cs" />
-    <Compile Include="IMessage.cs" />
-    <Compile Include="IRequest.cs" />
-    <Compile Include="IResponse.cs" />
-    <Compile Include="Messages\MessageFactoryContext.cs" />
-    <Compile Include="Messages\MessageFactory.cs" />
-    <Compile Include="Messages\Method.cs" />
-    <Compile Include="Messages\ParseException.cs" />
-    <Compile Include="Messages\ParserException.cs" />
-    <Compile Include="Messages\SipLexer.cs" />
-    <Compile Include="Messages\SipParser.cs" />
-    <Compile Include="Messages\Request.cs" />
-    <Compile Include="Messages\Response.cs" />
-    <Compile Include="SDP\SessionDescriptionProtocol.cs" />
-    <Compile Include="Servers\Authenticators\IAuthenticator.cs" />
-    <Compile Include="Servers\IUser.cs" />
-    <Compile Include="Servers\IUserContact.cs" />
-    <Compile Include="Servers\IUserRepository.cs" />
-    <Compile Include="Servers\Authenticator.cs" />
-    <Compile Include="Servers\Registrar\IRegistrationRepository.cs" />
-    <Compile Include="Servers\Registrar\Registrar.cs" />
-    <Compile Include="Servers\Registrar\NonceManager.cs" />
-    <Compile Include="Servers\Registrar\Registration.cs" />
-    <Compile Include="Servers\Registrar\RegistrationContact.cs" />
-    <Compile Include="Servers\Registrar\RegistrationRepository.cs" />
-    <Compile Include="Servers\StatefulProxy\Proxy.cs" />
-    <Compile Include="SipException.cs" />
-    <Compile Include="SipStack.cs" />
-    <Compile Include="SubscriberList.cs" />
-    <Compile Include="Tools\BufferReader.cs" />
-    <Compile Include="Tools\BufferReaderTest.cs" />
-    <Compile Include="Tools\ITextReader.cs" />
-    <Compile Include="Tools\ObjectPool.cs" />
-    <Compile Include="Tools\StringReader.cs" />
-    <Compile Include="Tools\StringUtils.cs" />
-    <Compile Include="Transactions\ClientInviteTransaction.cs" />
-    <Compile Include="Transactions\ClientNonInviteTransaction.cs" />
-    <Compile Include="Transactions\ExtensionMethods.cs" />
-    <Compile Include="Transactions\IClientTransaction.cs" />
-    <Compile Include="Transactions\IServerTransaction.cs" />
-    <Compile Include="Transactions\ITransaction.cs" />
-    <Compile Include="Transactions\ITransactionLayer.cs" />
-    <Compile Include="Transactions\ServerInviteTransaction.cs" />
-    <Compile Include="Transactions\ServerNonInviteTransaction.cs" />
-    <Compile Include="Transactions\TransactionEventArgs.cs" />
-    <Compile Include="Transactions\TransactionManager.cs" />
-    <Compile Include="Transactions\TransactionState.cs" />
-    <Compile Include="Transports\BufferPool.cs" />
-    <Compile Include="Transports\IFlow.cs" />
-    <Compile Include="Transports\ITransport.cs" />
-    <Compile Include="Transports\ITransportLayer.cs" />
-    <Compile Include="Messages\BodyEventArgs.cs" />
-    <Compile Include="Messages\HeaderEventArgs.cs" />
-    <Compile Include="Messages\RequestLineEventArgs.cs" />
-    <Compile Include="Messages\ResponseLineEventArgs.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SipSharpException.cs" />
-    <Compile Include="SipUri.cs" />
-    <Compile Include="StatusCode.cs" />
-    <Compile Include="Tests\TestMessages.cs" />
-    <Compile Include="Transports\MessageSerializer.cs" />
-    <Compile Include="Transports\TcpTransport.cs" />
-    <Compile Include="Transports\TransportLayer.cs" />
-    <Compile Include="Transports\UdpTransport.cs" />
-    <Compile Include="Client\UserAgent.cs" />
+    <Compile Remove="Servers\Client.cs" />
+    <Compile Remove="Transactions\ClientTransaction.cs" />
+    <Compile Remove="Servers\Agent\UserAgent.cs" />
+    <Compile Remove="Servers\Agent\UserAgentClient.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Channels\" />
-    <Folder Include="Dns\" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
