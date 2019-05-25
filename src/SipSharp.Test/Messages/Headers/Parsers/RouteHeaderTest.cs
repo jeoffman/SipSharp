@@ -7,11 +7,11 @@ namespace SipSharp.Test.Messages.Headers.Parsers
 {
     public class RouteHeaderTest
     {
-        private readonly RouteParser _parser;
-
         [Fact]
         private void Test()
         {
+            RouteParser _parser = new RouteParser();
+
             IHeader header = _parser.Parse("Route",
                                            new StringReader(
                                                "<sip:bigbox3.site3.atlanta.com;lr>,\r\n <sip:server10.biloxi.com)"));

@@ -58,6 +58,9 @@ namespace SipSharp.Messages
                     else
                         Via = via;
                     break;
+                case "call-id":
+                    CallId = header.ToString();
+                    break;
             }
 
             Headers.Add(name.ToLower(), header);
@@ -186,21 +189,23 @@ namespace SipSharp.Messages
         /// see Section 8.1.3.5 (RFC 3261).
         /// </para>
         /// </remarks>
-        public string CallId
-        {
-            get
-            {
-                var header = (StringHeader) Headers["call-id"];
-                return header == null ? string.Empty : header.Value;
-            }
-            set
-            {
-                if (!Headers.Contains("call-id"))
-                    Headers.Add("call-id", new StringHeader("call-id", value));
-                else
-                    ((StringHeader) Headers["call-id"]).Value = value;
-            }
-        }
+        public string CallId { get; set; }
+        //for some reason he treats CallId special and adds it to the "Headers" collection in addition to setting it here
+        // this is a problem during MessageSerializer.Serialize because that guy add the call-id AGAIN
+        //{
+        //    get
+        //    {
+        //        var header = (StringHeader) Headers["call-id"];
+        //        return header == null ? string.Empty : header.Value;
+        //    }
+        //    set
+        //    {
+        //        if (!Headers.Contains("call-id"))
+        //            Headers.Add("call-id", new StringHeader("call-id", value));
+        //        else
+        //            ((StringHeader) Headers["call-id"]).Value = value;
+        //    }
+        //}
 
         /// <summary>
         /// Gets number of bytes in body.

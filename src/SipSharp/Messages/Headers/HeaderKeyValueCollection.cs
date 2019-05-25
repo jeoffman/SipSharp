@@ -92,6 +92,8 @@ namespace SipSharp.Messages.Headers
         /// <param name="value">value</param>
         void IKeyValueCollection<string, IHeader>.Add(string key, IHeader value)
         {
+            if (_headers.ContainsKey(key))
+                throw new ArgumentException($"Key \"{key}\" already exists in collection");
             _headers.Add(key, value);
         }
 
