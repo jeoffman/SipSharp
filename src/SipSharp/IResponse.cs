@@ -25,6 +25,6 @@ namespace SipSharp
         /// <summary>
         /// Gets or sets SIP status code.
         /// </summary>
-        StatusCode StatusCode { get; set; }
+        StatusCodes StatusCode { get; set; }
     }
 }

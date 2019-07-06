@@ -1,6 +1,6 @@
 ﻿namespace SipSharp.Test.Messages
 {
-    public class Messages
+    public class TestMessages
     {
         /// <summary>
         /// from RFC 4475

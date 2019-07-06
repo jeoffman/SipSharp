@@ -226,7 +226,7 @@ namespace SipSharp.Messages
         /// <param name="reason">Reason to why the status code was used.</param>
         /// <returns>A Created response.</returns>
         /// <exception cref="InvalidOperationException">Provisional responses is only valid for INVITE method.</exception>
-        public IResponse CreateResponse(StatusCode code, string reason)
+        public IResponse CreateResponse(StatusCodes code, string reason)
         {
             if (StatusCodeHelper.Is1xx(code) && Method != "INVITE")
                 throw new InvalidOperationException("Provisional responses is only valid for INVITE method.");

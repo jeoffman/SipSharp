@@ -8,7 +8,7 @@ namespace SipSharp.Messages
     /// </summary>
     public class Response : Message, IResponse
     {
-        public Response(string version, StatusCode code, string phrase)
+        public Response(string version, StatusCodes code, string phrase)
         {
             StatusCode = code;
             SipVersion = version;
@@ -20,7 +20,7 @@ namespace SipSharp.Messages
         /// <summary>
         /// Gets or sets SIP status code.
         /// </summary>
-        public StatusCode StatusCode { get; set; }
+        public StatusCodes StatusCode { get; set; }
 
         /// <summary>
         /// Gets or sets text describing why the status code was used.

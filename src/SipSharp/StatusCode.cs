@@ -25,7 +25,7 @@
     /// a particular user, not just the particular instance indicated in the
     /// Request-URI.
     /// </summary>
-    public enum StatusCode
+    public enum StatusCodes
     {
         /// <summary>
         /// This response indicates that the request has been received by the
@@ -529,7 +529,7 @@
         /// </summary>
         /// <param name="code">StatusCode to check</param>
         /// <returns>true or false ;)</returns>
-        public static bool Is1xx(StatusCode code)
+        public static bool Is1xx(StatusCodes code)
         {
             var icode = (int) code;
             return icode >= 100 && icode < 200;
@@ -546,7 +546,7 @@
             return icode >= 100 && icode < 200;
         }
 
-        public static bool Is2xx(StatusCode code)
+        public static bool Is2xx(StatusCodes code)
         {
             var icode = (int) code;
             return icode >= 200 && icode < 300;

@@ -15,7 +15,7 @@ namespace SipSharp.Transports.Parser
         /// <summary>
         /// Gets or sets message status code
         /// </summary>
-        public StatusCode StatusCode { get; set; }
+        public StatusCodes StatusCode { get; set; }
 
         /// <summary>
         /// Gets or sets sip protocol version used.

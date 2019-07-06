@@ -60,7 +60,7 @@ namespace SipSharp.Messages
             return new Request(method, path, version);
         }
 
-        internal Response CreateResponse(string version, StatusCode statusCode, string reason)
+        internal Response CreateResponse(string version, StatusCodes statusCode, string reason)
         {
             return new Response(version, statusCode, reason);
         }

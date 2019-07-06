@@ -91,6 +91,6 @@ namespace SipSharp
         /// <param name="reason">Reason to why the status code was used.</param>
         /// <returns>A Created response.</returns>
         /// <exception cref="InvalidOperationException">Provisional responses is only valid for INVITE method.</exception>
-        IResponse CreateResponse(StatusCode code, string reason);
+        IResponse CreateResponse(StatusCodes code, string reason);
     }
 }

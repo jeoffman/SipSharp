@@ -102,7 +102,7 @@ namespace SwitchSharp.Modules
         /// <returns>What we should to with the request.</returns>
         public ProcessingResult ProcessRequest(RequestContext context)
         {
-            IResponse trying = context.Request.CreateResponse(StatusCode.Trying, "We are trying here.");
+            IResponse trying = context.Request.CreateResponse(StatusCodes.Trying, "We are trying here.");
             context.Transaction.Send(trying);
 
             // create call info
@@ -118,7 +118,7 @@ namespace SwitchSharp.Modules
             // Caller and Destination are both external (not found)
             if (!call.Caller.IsInternal && !call.Caller.IsInternal)
             {
-                context.Response.StatusCode = StatusCode.NotFound;
+                context.Response.StatusCode = StatusCodes.NotFound;
                 context.Response.ReasonPhrase = "Destination is not found in this server.";
                 return ProcessingResult.SendResponse;
             }

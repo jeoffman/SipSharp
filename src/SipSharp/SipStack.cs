@@ -99,7 +99,7 @@ namespace SipSharp
 
 
             IServerTransaction transaction = _transactionManager.CreateServerTransaction(e.Request);
-            var context = new RequestContext(e.Request, e.Request.CreateResponse(StatusCode.OK, "OK!"), transaction);
+            var context = new RequestContext(e.Request, e.Request.CreateResponse(StatusCodes.OK, "OK!"), transaction);
             bool isSent = false;
             foreach (var handler in _requestHandlers)
             {
@@ -121,7 +121,7 @@ namespace SipSharp
             if (!isSent)
             {
                 _logger.Info("Nothing handled " + e.Request);
-                context.Response.StatusCode = StatusCode.NotImplemented;
+                context.Response.StatusCode = StatusCodes.NotImplemented;
                 context.Response.ReasonPhrase = "Ohh no. We can't handle that method :(";
                 transaction.Send(context.Response);
             }

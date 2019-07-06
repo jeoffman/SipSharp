@@ -15,7 +15,7 @@ namespace SipSharp.Test
         private readonly MemoryStream _body = new MemoryStream();
         private readonly NameValueCollection _headers = new NameValueCollection();
         private readonly SipParser _parser;
-        private bool _isComplete;
+        //private bool _isComplete;
 
         public SipParserTest()
         {
@@ -36,7 +36,7 @@ namespace SipSharp.Test
             _body.Seek(0, SeekOrigin.Begin);
             var reader = new StreamReader(_body);
             Debug.WriteLine(reader.ReadToEnd());
-            _isComplete = true;
+            //_isComplete = true;
         }
 
 
@@ -53,7 +53,7 @@ namespace SipSharp.Test
         [Fact]
         private void TestAShortTortuousINVITE()
         {
-            byte[] bytes = Encoding.ASCII.GetBytes(SipSharp.Test.Messages.Messages.AShortTortuousINVITE);
+            byte[] bytes = Encoding.ASCII.GetBytes(SipSharp.Test.Messages.TestMessages.AShortTortuousINVITE);
             _parser.Parse(bytes, 0, bytes.Length);
             Assert.Equal("sip:vivekg@chair-dnrc.example.com ;   tag    = 1918181833n", _headers["to"]);
             Assert.Equal(@"""J Rosenberg \\\""""       <sip:jdrosen@example.com> ; tag = 98asjd8", _headers["from"]);

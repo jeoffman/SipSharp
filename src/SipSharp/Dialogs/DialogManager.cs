@@ -252,7 +252,7 @@ namespace SipSharp.Dialogs
                 // recreate the dialog, it MUST respond to the request with a 481
                 // (Call/Transaction Does Not Exist) status code and pass that to the
                 // server transaction.
-                IResponse response = request.CreateResponse(StatusCode.CallOrTransactionDoesNotExist,
+                IResponse response = request.CreateResponse(StatusCodes.CallOrTransactionDoesNotExist,
                                                             "Dialog was not found");
                 _logger.Warning("Failed to find dialog with to tag: " + localTag);
                 transaction.Send(response);

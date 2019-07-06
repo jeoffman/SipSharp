@@ -150,7 +150,7 @@ namespace SipSharp.Test.Transports
         [Fact]
         private void SendResponse()
         {
-            _response = new Response("SIP/2.0", StatusCode.OK, "OK!")
+            _response = new Response("SIP/2.0", StatusCodes.OK, "OK!")
                             {
                                 From = new Contact("Adam Nilsson", new SipUri("sip", "adam", "nilsson.com", 5060)),
                                 To = new Contact("Jonas Gauffin", new SipUri("jonas", "gauffin.com")),

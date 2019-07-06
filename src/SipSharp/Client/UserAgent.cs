@@ -254,7 +254,7 @@ namespace SipSharp.Client
             // response is received, the UAC SHOULD follow the authorization
             // procedures of Section 22.2 and Section 22.3 to retry the request with
             // credentials.
-            if (response.StatusCode == StatusCode.Unauthorized)
+            if (response.StatusCode == StatusCodes.Unauthorized)
             {
                 var request = (IRequest) transaction.Request.Clone();
                 var authenticate = (Authenticate) response.Headers[Authenticate.WWW_NAME];

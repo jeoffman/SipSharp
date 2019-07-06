@@ -12,7 +12,7 @@ namespace SipSharp
         /// </summary>
         /// <param name="code">SIP status code.</param>
         /// <param name="errMsg">Why exception was thrown.</param>
-        public SipException(StatusCode code, string errMsg) : base(errMsg)
+        public SipException(StatusCodes code, string errMsg) : base(errMsg)
         {
             StatusCode = code;
         }
@@ -23,7 +23,7 @@ namespace SipSharp
         /// <param name="code">SIP status code.</param>
         /// <param name="errMsg">Why exception was thrown.</param>
         /// <param name="inner">Inner exception.</param>
-        public SipException(StatusCode code, string errMsg, Exception inner) : base(errMsg, inner)
+        public SipException(StatusCodes code, string errMsg, Exception inner) : base(errMsg, inner)
         {
             StatusCode = code;
         }
@@ -31,6 +31,6 @@ namespace SipSharp
         /// <summary>
         /// Gets sip status code to return
         /// </summary>
-        public StatusCode StatusCode { get; private set; }
+        public StatusCodes StatusCode { get; private set; }
     }
 }

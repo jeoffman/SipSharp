@@ -11,7 +11,7 @@ namespace SipSharp
         /// Initializes a new instance of the <see cref="BadRequestException"/> class.
         /// </summary>
         /// <param name="msg">Why exception was thrown.</param>
-        public BadRequestException(string msg) : base(StatusCode.BadRequest, msg)
+        public BadRequestException(string msg) : base(StatusCodes.BadRequest, msg)
         {
         }
 
@@ -20,7 +20,7 @@ namespace SipSharp
         /// </summary>
         /// <param name="msg">Error message.</param>
         /// <param name="inner">Inner exception.</param>
-        public BadRequestException(string msg, Exception inner) : base(StatusCode.BadRequest, msg, inner)
+        public BadRequestException(string msg, Exception inner) : base(StatusCodes.BadRequest, msg, inner)
         {
         }
     }

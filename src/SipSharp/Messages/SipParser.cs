@@ -176,7 +176,7 @@ namespace SipSharp.Messages
                 _responseEventArgs.Version = words[0];
                 try
                 {
-                    _responseEventArgs.StatusCode = (StatusCode) Enum.Parse(typeof (StatusCode), words[1]);
+                    _responseEventArgs.StatusCode = (StatusCodes) Enum.Parse(typeof (StatusCodes), words[1]);
                 }
                 catch (ArgumentException err)
                 {
@@ -194,17 +194,17 @@ namespace SipSharp.Messages
                     if (!int.TryParse(words[1], out code))
                         throw new BadRequestException("Status code '" + words[1] + "' is not known.", err);
                     if (code < 100)
-                        _responseEventArgs.StatusCode = StatusCode.SessionProgress;
+                        _responseEventArgs.StatusCode = StatusCodes.SessionProgress;
                     else if (code >= 200 && code < 300)
-                        _responseEventArgs.StatusCode = StatusCode.OK;
+                        _responseEventArgs.StatusCode = StatusCodes.OK;
                     else if (code >= 300 && code < 400)
-                        _responseEventArgs.StatusCode = StatusCode.MultipleChoices;
+                        _responseEventArgs.StatusCode = StatusCodes.MultipleChoices;
                     else if (code >= 400 && code < 500)
-                        _responseEventArgs.StatusCode = StatusCode.BadRequest;
+                        _responseEventArgs.StatusCode = StatusCodes.BadRequest;
                     else if (code >= 500 && code < 600)
-                        _responseEventArgs.StatusCode = StatusCode.InternalError;
+                        _responseEventArgs.StatusCode = StatusCodes.InternalError;
                     else if (code >= 600)
-                        _responseEventArgs.StatusCode = StatusCode.BusyEverywhere;
+                        _responseEventArgs.StatusCode = StatusCodes.BusyEverywhere;
                 }
                 _responseEventArgs.ReasonPhrase = words[1];
                 ResponseLineParsed(this, _responseEventArgs);

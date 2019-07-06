@@ -117,7 +117,7 @@ namespace SipSharp.Servers.Registrar
             {
                 _logger.Warning("Contact header was not specified.");
                 context.Response.ReasonPhrase = "Missing/Invalid contact header.";
-                context.Response.StatusCode = StatusCode.BadRequest;
+                context.Response.StatusCode = StatusCodes.BadRequest;
                 return null;
             }
 
@@ -131,7 +131,7 @@ namespace SipSharp.Servers.Registrar
                     {
                         _logger.Warning("Invalid expires value: " + contact.Parameters["expires"]);
                         context.Response.ReasonPhrase = "Invalid expires value on contact header.";
-                        context.Response.StatusCode = StatusCode.BadRequest;
+                        context.Response.StatusCode = StatusCodes.BadRequest;
                         return null;
                     }
 
@@ -139,7 +139,7 @@ namespace SipSharp.Servers.Registrar
                     {
                         _logger.Warning("Too small expires value: " + expires);
                         context.Response.ReasonPhrase = "Increase expires value.";
-                        context.Response.StatusCode = StatusCode.IntervalTooBrief;
+                        context.Response.StatusCode = StatusCodes.IntervalTooBrief;
                         context.Response.Headers.Add("MinExpires", new NumericHeader("MinExpires", MinExpires));
                         return null;
                     }
@@ -148,7 +148,7 @@ namespace SipSharp.Servers.Registrar
                 if (oldContact != null && oldContact.CallId == context.Request.CallId
                     && context.Request.CSeq.Number < oldContact.SequenceNumber)
                 {
-                    context.Response.StatusCode = StatusCode.BadRequest;
+                    context.Response.StatusCode = StatusCodes.BadRequest;
                     context.Response.ReasonPhrase = "CSeq value in contact is out of order.";
                     return null;
                 }
@@ -180,7 +180,7 @@ namespace SipSharp.Servers.Registrar
             {
                 _logger.Info("Failed to find auth user name: " + authorization.UserName + " in realm " + authorization.Realm);
                 context.Response.ReasonPhrase = "Failed to find auth user name";
-                context.Response.StatusCode = StatusCode.BadRequest;
+                context.Response.StatusCode = StatusCodes.BadRequest;
                 return null;
             }
 
@@ -200,7 +200,7 @@ namespace SipSharp.Servers.Registrar
 
             if (context.Request.To.Uri.Scheme != "sip" && context.Request.To.Uri.Scheme != "sips")
             {
-                context.Response.StatusCode = StatusCode.BadRequest;
+                context.Response.StatusCode = StatusCodes.BadRequest;
                 context.Response.ReasonPhrase = "Only SIP and SIPS protocols are allowed.";
                 context.Response.Headers["Date"] = new StringHeader("Date", DateTime.Now.ToString("R"));
                 return ProcessingResult.SendResponse;
@@ -243,7 +243,7 @@ namespace SipSharp.Servers.Registrar
             */
             if (context.Request.Headers[Authorization.LNAME] == null)
             {
-                context.Response.StatusCode = StatusCode.Unauthorized;
+                context.Response.StatusCode = StatusCodes.Unauthorized;
                 context.Response.ReasonPhrase = "You must authorize";
                 IHeader wwwHeader = _authenticator.CreateWwwHeader(Realm, Domain);
                 context.Response.Headers.Add(Messages.Headers.Authenticate.WWW_NAME, wwwHeader);
